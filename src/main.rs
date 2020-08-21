@@ -36,6 +36,9 @@ fn commit(input: &str) -> String {
 fn push() -> String {
     let output = Command::new("git")
         .arg("push")
+        .arg("-u")
+        .arg("origin")
+        .arg("master")
         .output()
         .expect("failed to execute process");
     std::str::from_utf8(&output.stdout).unwrap().to_string()
